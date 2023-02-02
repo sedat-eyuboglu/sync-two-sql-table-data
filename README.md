@@ -1,2 +1,2 @@
-# Syncronize Two SQL Table Using HASHBYTES T-SQL Function
-Using HASHBYTES we can produce a hash value for the all field values of a table. In this sample we have two table. First one Store stores the current data. And StoreSync presents the new data. For example the data imported from other data source. sync.sql script demostrates how Store table syncronizes with StoreSync table. And after executing script, both tables have the same data.
+# Syncronize Two SQL Tables Using HASHBYTES T-SQL Function
+Using HASHBYTES we can produce a hash value for all the field values of a SQL table. In this sample we have two tables. First one Store stores the current data. And StoreSync presents the new data. For example the data imported from other data source. sync.sql script demostrates how Store table syncronizes with StoreSync table. And after executing script, both tables have the same data.
