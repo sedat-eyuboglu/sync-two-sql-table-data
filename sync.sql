@@ -25,13 +25,15 @@ INSERT INTO StoreSync VALUES ('Code1', 'Name 1', 'Ankara')
 INSERT INTO StoreSync VALUES ('Code2', 'Name New 2', 'İstanbul')
 INSERT INTO StoreSync VALUES ('Code3', 'Name 3', 'İzmir')
 
+SELECT '--- BEFORE ---'
+SELECT * FROM Store
+SELECT * FROM StoreSync
 
 DELETE s
 --SELECT s.*
 FROM Store s 
 	LEFT JOIN StoreSync sync ON sync.StoreCode = s.StoreCode
 WHERE sync.StoreCode IS NULL
-
 
 INSERT INTO Store (StoreCode, StoreName, StoreCity)
 SELECT sync.StoreCode, sync.StoreName, sync.StoreCity
@@ -52,13 +54,13 @@ HASHBYTES('SHA2_256',
 		ISNULL(s.StoreName, '')
 		,ISNULL(s.StoreCity, '')
 	)
-) != 
-HASHBYTES('SHA2_256',
+) 
+!= HASHBYTES('SHA2_256',
 	CONCAT(
 		ISNULL(sync.StoreName, '')
 		,ISNULL(s.StoreCity, '')
 	)
 )
-
+SELECT '--- AFTER ---'
 SELECT * FROM Store
 SELECT * FROM StoreSync
